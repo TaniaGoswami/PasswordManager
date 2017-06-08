@@ -4,4 +4,7 @@ import XCTest
 @testable import PasswordManager
 
 class PasswordManagerTests: XCTestCase {
+    func testPasswordManagerIsAvailable() {
+        XCTAssertFalse(PasswordManager.shared.isPasswordManagerAvailable)
+    }
 }
