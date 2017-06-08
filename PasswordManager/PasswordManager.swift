@@ -26,8 +26,8 @@ class PasswordManager {
     }
 
     func findLogin(urlString: String, viewController: UIViewController, sender: UIView, completion: @escaping ([String: Any]?, Error?) -> Void) {
-        let item: [String: Any] = ["version_number": versionNumber, "url_string": urlString]
-        let activityViewController = activityViewControllerForItem(item: item, viewController: viewController, sender: sender, typeIdentifier: "org.appextension.find-login-action")
+        let item: [String: Any] = [PasswordManagerConstants.VersionNumberKey: versionNumber, PasswordManagerConstants.UrlStringKey: urlString]
+        let activityViewController = activityViewControllerForItem(item: item, viewController: viewController, sender: sender, typeIdentifier: PasswordManagerConstants.FindLoginAction)
         activityViewController.completionWithItemsHandler = { [weak self] activityType, completed, returnedItems, activityError in
             guard let item = returnedItems?.first as? NSExtensionItem else {
                 let error = activityError ?? PasswordManagerError.extensionCancelledByUser

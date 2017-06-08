@@ -11,6 +11,7 @@
 		1E9DD7781EE9A38500A1ADAF /* PasswordManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD7771EE9A38500A1ADAF /* PasswordManagerTests.swift */; };
 		1E9DD77A1EE9A38500A1ADAF /* PasswordManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E9DD76C1EE9A38500A1ADAF /* PasswordManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E9DD7841EE9B31900A1ADAF /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD7831EE9B31900A1ADAF /* PasswordManager.swift */; };
+		1E9DD7861EE9BDAF00A1ADAF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD7851EE9BDAF00A1ADAF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		1E9DD7771EE9A38500A1ADAF /* PasswordManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManagerTests.swift; sourceTree = "<group>"; };
 		1E9DD7791EE9A38500A1ADAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E9DD7831EE9B31900A1ADAF /* PasswordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
+		1E9DD7851EE9BDAF00A1ADAF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				1E9DD76C1EE9A38500A1ADAF /* PasswordManager.h */,
 				1E9DD76D1EE9A38500A1ADAF /* Info.plist */,
 				1E9DD7831EE9B31900A1ADAF /* PasswordManager.swift */,
+				1E9DD7851EE9BDAF00A1ADAF /* Constants.swift */,
 			);
 			path = PasswordManager;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E9DD7841EE9B31900A1ADAF /* PasswordManager.swift in Sources */,
+				1E9DD7861EE9BDAF00A1ADAF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
