@@ -111,6 +111,7 @@
 				1E9DD7651EE9A38500A1ADAF /* Frameworks */,
 				1E9DD7661EE9A38500A1ADAF /* Headers */,
 				1E9DD7671EE9A38500A1ADAF /* Resources */,
+				1E9DD7871EE9C38000A1ADAF /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -194,6 +195,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E9DD7871EE9C38000A1ADAF /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E9DD7641EE9A38500A1ADAF /* Sources */ = {
@@ -406,6 +424,7 @@
 				1E9DD77F1EE9A38500A1ADAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E9DD7801EE9A38500A1ADAF /* Build configuration list for PBXNativeTarget "PasswordManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +433,7 @@
 				1E9DD7821EE9A38500A1ADAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
