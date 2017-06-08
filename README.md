@@ -51,7 +51,7 @@ Check if a password management application is available with the `isPasswordMana
 
 Add `org-appextension-feature-password-management` to your target's `info.plist`:
 
-![Custom URL scheme](/assets/plist-screenshot.jpg?raw=true "Custom URL Scheme")
+![Custom URL scheme](/assets/plist-screenshot.png?raw=true "Custom URL Scheme")
 
 Call the `findLogin` method from your `UIViewController` when the button is clicked. This is what the call and result handling could look like:
 
