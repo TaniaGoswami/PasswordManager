@@ -75,6 +75,39 @@ PasswordManager.shared.findLogin(urlString: "https://www.yourapp.com", viewContr
 
 The share sheet will be presented on the UIViewController that is passed in. The completion block will be called on the main thread when the user finishes their selection. Finally, you can retrieve the credentials from the login dictionary and validate them.
 
+### Allow user to create new login information
+
+Call the `storeLogin` method from your `UIViewController` when the button is clicked. This is what the call and result handling could look like:
+
+```swift
+func createLogin(username: String, password: String, viewController: UIViewController, sender: UIView, result: @escaping (String?, String?, Error?) -> Void) {
+        let newLoginDetails: [String : Any] = [
+            "login_title": "Your App",
+            "username": username,
+            "password": password,
+            "notes": "Saved with your app"
+        ]
+        let passwordGenerationOptions: [String: Any] = ["password_min_length": 8 ]
+        PasswordManager.shared.storeLogin(urlString: "https://www.yourapp.com", loginDetails: newLoginDetails, passwordGenerationOptions: passwordGenerationOptions, viewController: viewController, sender: sender) { dictionary, error in
+            if let error = error {
+                result(nil, nil, error)
+                return
+            }
+            guard let username = dictionary?["username"] as? String else {
+                result(nil, nil, PasswordManagerError.usernameNotFound)
+                return
+            }
+            guard let password = dictionary?["password"] as? String else {
+                result(nil, nil, PasswordManagerError.passwordNotFound)
+                return
+            }
+            result(username, password, nil)
+        }
+    }
+```
+
+Remember that your value for `urlString` here should be the same as it was in your `findLogin` command so that users can later use the login information that they generated.
+
 ## Notes
 
 1. `URLString` should refer to your service so that your user can find their login information within their password manager app. If you don't have a website for your app, you should use your bundle identifier for the `URLString`: `app://yourapp`.
