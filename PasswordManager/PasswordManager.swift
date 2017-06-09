@@ -44,6 +44,33 @@ class PasswordManager {
         viewController.present(activityViewController, animated: true, completion: nil)
     }
 
+    func storeLogin(urlString: String, loginDetails: [AnyHashable: Any], passwordGenerationOptions: [AnyHashable: Any], viewController: UIViewController, sender: UIView, completion: @escaping ([String: Any]?, Error?) -> Void) {
+        var newLoginAttributes = [AnyHashable: Any]()
+        newLoginAttributes[PasswordManagerConstants.VersionNumberKey] = versionNumber
+        newLoginAttributes[PasswordManagerConstants.UrlStringKey] = urlString
+        for (key, value) in loginDetails {
+            newLoginAttributes[key] = value
+        }
+        if passwordGenerationOptions.count > 0 {
+            newLoginAttributes[PasswordManagerConstants.PasswordGeneratorOptionsKey] = passwordGenerationOptions
+        }
+        let activityViewController = activityViewControllerForItem(item: newLoginAttributes, viewController: viewController, sender: sender, typeIdentifier: PasswordManagerConstants.SaveLoginAction)
+        activityViewController.completionWithItemsHandler = { [weak self] activityType, completed, returnedItems, activityError in
+            guard let item = returnedItems?.first as? NSExtensionItem else {
+                let error = activityError ?? PasswordManagerError.extensionCancelledByUser
+                completion(nil, error)
+                return
+            }
+
+            self?.processExtensionItem(extensionItem: item, completion: { itemDictionary, error in
+                DispatchQueue.main.async {
+                    completion(itemDictionary, error)
+                }
+            })
+        }
+        viewController.present(activityViewController, animated: true, completion: nil)
+    }
+
     private func activityViewControllerForItem(item: [AnyHashable: Any], viewController: UIViewController, sender: UIView, typeIdentifier: String) -> UIActivityViewController {
         let itemProvider = NSItemProvider(item: item as NSSecureCoding, typeIdentifier: typeIdentifier)
         let extensionItem = NSExtensionItem()
