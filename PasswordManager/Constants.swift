@@ -17,4 +17,5 @@ struct PasswordManagerConstants {
     public static let GeneratedPasswordForbiddenCharactersKey = "password_forbidden_characters"
     public static let FindLoginAction = "org.appextension.find-login-action"
     public static let SaveLoginAction = "org.appextension.save-login-action"
+    public static let ChangePasswordAction = "org.appextension.change-password-action"
 }
