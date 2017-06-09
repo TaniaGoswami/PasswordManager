@@ -13,7 +13,7 @@ public enum PasswordManagerError: Error {
 }
 
 class PasswordManager {
-    private let versionNumber = 184
+    private let versionNumber = 110
     static let shared = PasswordManager()
     private let passwordManagerAvailable: URL = {
         return URL(string: "org-appextension-feature-password-management://")!

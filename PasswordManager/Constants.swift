@@ -8,6 +8,7 @@ struct PasswordManagerConstants {
     public static let UsernameKey = "username"
     public static let PasswordKey = "password"
     public static let NotesKey = "notes"
+    public static let SectionTitleKey = "section_title"
     public static let FieldsKey = "fields"
     public static let GeneratedPasswordMinLengthKey = "password_min_length"
     public static let GeneratedPasswordMaxLength = "password_max_length"
